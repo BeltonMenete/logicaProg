@@ -1,429 +1,379 @@
 import React, { useState } from 'react';
-import { Download } from 'lucide-react';
+
+import { Download, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import './PortugolChecklist.css';
 
 const PortugolChecklist = () => {
    const [checkedItems, setCheckedItems] = useState({});
+   const [openDropdowns, setOpenDropdowns] = useState({});
 
    const topics = [
       {
          category: '1. Fundamentos Básicos',
          color: 'bg-blue-500',
          items: [
-            'O que é programação?',
-            'O que é algoritmo?',
-            'O que é Portugol?',
-            'Ambiente de desenvolvimento (IDE)',
-            'Estrutura básica de um programa',
-            'Comentários em código',
+            { text: 'O que é programação?', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'] },
+            { text: 'O que é algoritmo?', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2NgIbuA6GLY'] },
+            { text: 'O que é Portugol?', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            {
+               text: 'Ambiente de desenvolvimento (IDE)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+            },
+            {
+               text: 'Estrutura básica de um programa',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'],
+            },
+            { text: 'Comentários em código', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
          ],
       },
       {
          category: '2. Variáveis e Tipos de Dados',
          color: 'bg-green-500',
          items: [
-            'Conceito de variável',
-            'Declaração de variáveis',
-            'Tipo inteiro',
-            'Tipo real',
-            'Tipo caractere',
-            'Tipo cadeia (string)',
-            'Tipo logico (booleano)',
-            'Constantes',
-            'Atribuição de valores',
+            { text: 'Conceito de variável', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            {
+               text: 'Declaração de variáveis',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'],
+            },
+            { text: 'Tipo inteiro', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            { text: 'Tipo real', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            { text: 'Tipo caractere', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            { text: 'Tipo cadeia (string)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            {
+               text: 'Tipo lógico (booleano)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'],
+            },
+            { text: 'Constantes', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            { text: 'Atribuição de valores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
          ],
       },
       {
          category: '3. Entrada e Saída de Dados',
          color: 'bg-purple-500',
          items: [
-            'Comando escreva()',
-            'Comando leia()',
-            'Formatação de saída',
-            'Concatenação de texto',
-            'Entrada de diferentes tipos de dados',
+            { text: 'Comando escreva()', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Comando leia()', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Formatação de saída', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Concatenação de texto', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            {
+               text: 'Entrada de diferentes tipos de dados',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'],
+            },
          ],
       },
       {
          category: '4. Operadores',
          color: 'bg-yellow-500',
          items: [
-            'Operadores aritméticos (+, -, *, /, %)',
-            'Operadores relacionais (>, <, >=, <=, ==, !=)',
-            'Operadores lógicos (e, ou, nao)',
-            'Precedência de operadores',
-            'Expressões matemáticas',
+            {
+               text: 'Operadores aritméticos (+, -, *, /, %)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+            },
+            {
+               text: 'Operadores relacionais (>, <, >=, <=, ==, !=)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+            },
+            {
+               text: 'Operadores lógicos (e, ou, nao)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+            },
+            {
+               text: 'Precedência de operadores',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+            },
+            {
+               text: 'Expressões matemáticas',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+            },
          ],
       },
       {
          category: '5. Estruturas de Decisão',
          color: 'bg-red-500',
          items: [
-            'Comando se (if)',
-            'Comando se-senao (if-else)',
-            'Se aninhado (nested if)',
-            'Comando escolha-caso (switch-case)',
-            'Operador ternário',
+            { text: 'Comando se (if)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'] },
+            {
+               text: 'Comando se-senao (if-else)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'],
+            },
+            {
+               text: 'Se aninhado (nested if)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'],
+            },
+            {
+               text: 'Comando escolha-caso (switch-case)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'],
+            },
+            { text: 'Operador ternário', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'] },
          ],
       },
       {
          category: '6. Estruturas de Repetição',
          color: 'bg-indigo-500',
          items: [
-            'Conceito de laços/loops',
-            'Comando para (for)',
-            'Comando enquanto (while)',
-            'Comando faca-enquanto (do-while)',
-            'Comando pare (break)',
-            'Loops aninhados',
-            'Contadores e acumuladores',
+            {
+               text: 'Conceito de laços/loops',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+            },
+            { text: 'Comando para (for)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'] },
+            {
+               text: 'Comando enquanto (while)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+            },
+            {
+               text: 'Comando faca-enquanto (do-while)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+            },
+            { text: 'Comando pare (break)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'] },
+            { text: 'Loops aninhados', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'] },
+            {
+               text: 'Contadores e acumuladores',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+            },
          ],
       },
       {
          category: '7. Vetores (Arrays)',
          color: 'bg-pink-500',
          items: [
-            'Conceito de vetor',
-            'Declaração de vetores',
-            'Acesso a elementos',
-            'Percorrer vetores',
-            'Preenchimento de vetores',
-            'Busca em vetores',
-            'Ordenação básica',
+            { text: 'Conceito de vetor', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Declaração de vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Acesso a elementos', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Percorrer vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
+            {
+               text: 'Preenchimento de vetores',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'],
+            },
+            { text: 'Busca em vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Ordenação básica', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
          ],
       },
       {
          category: '8. Matrizes',
          color: 'bg-teal-500',
          items: [
-            'Conceito de matriz',
-            'Declaração de matrizes',
-            'Acesso a elementos',
-            'Percorrer matrizes (loops aninhados)',
-            'Matriz bidimensional',
-            'Operações com matrizes',
+            { text: 'Conceito de matriz', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
+            {
+               text: 'Declaração de matrizes',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'],
+            },
+            { text: 'Acesso a elementos', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
+            {
+               text: 'Percorrer matrizes (loops aninhados)',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'],
+            },
+            { text: 'Matriz bidimensional', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
+            {
+               text: 'Operações com matrizes',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'],
+            },
          ],
       },
       {
          category: '9. Funções e Procedimentos',
          color: 'bg-orange-500',
          items: [
-            'Conceito de modularização',
-            'Declaração de funções',
-            'Declaração de procedimentos',
-            'Parâmetros',
-            'Retorno de valores',
-            'Escopo de variáveis',
-            'Funções com vetores',
+            {
+               text: 'Conceito de modularização',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'],
+            },
+            { text: 'Declaração de funções', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            {
+               text: 'Declaração de procedimentos',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'],
+            },
+            { text: 'Parâmetros', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Retorno de valores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Escopo de variáveis', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Funções com vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
          ],
       },
       {
          category: '10. Boas Práticas',
          color: 'bg-cyan-500',
          items: [
-            'Identação de código',
-            'Nomes significativos',
-            'Comentários úteis',
-            'Organização do código',
-            'Testes e depuração',
-            'Resolução de problemas',
+            { text: 'Identação de código', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
+            { text: 'Nomes significativos', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
+            { text: 'Comentários úteis', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
+            { text: 'Organização do código', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
+            { text: 'Testes e depuração', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
+            {
+               text: 'Resolução de problemas',
+               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+            },
          ],
       },
    ];
 
-   const handleCheck = (categoryIndex, itemIndex) => {
-      const key = `${categoryIndex}-${itemIndex}`;
-      setCheckedItems((prev) => ({
-         ...prev,
-         [key]: !prev[key],
-      }));
+   const handleCheck = (catIndex, itemIndex) => {
+      const key = `${catIndex}-${itemIndex}`;
+      setCheckedItems((prev) => ({ ...prev, [key]: !prev[key] }));
+   };
+
+   const toggleDropdown = (catIndex, itemIndex) => {
+      const key = `${catIndex}-${itemIndex}`;
+      setOpenDropdowns((prev) => ({ ...prev, [key]: !prev[key] }));
    };
 
    const generatePDF = () => {
       const printWindow = window.open('', '_blank');
-      const checkedState = checkedItems;
-
       printWindow.document.write(`
       <!DOCTYPE html>
       <html>
         <head>
-          <title>Checklist de Ensino - Portugol</title>
+          <title>Checklist Portugol</title>
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
           <style>
-            @page {
-              size: A4;
-              margin: 15mm;
-            }
-            
-            body {
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              line-height: 1.6;
-              color: #333;
-              margin: 0;
-              padding: 20px;
-              background: #f9fafb;
-            }
-            
-            .header {
-              text-align: center;
-              margin-bottom: 30px;
-              padding: 30px;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              color: white;
-              border-radius: 15px;
-              box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            }
-            
-            .header h1 {
-              margin: 0 0 10px 0;
-              font-size: 42px;
-              font-weight: 800;
-              text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            }
-            
-            .header p {
-              margin: 0;
-              font-size: 18px;
-              opacity: 0.95;
-            }
-            
-            .category {
-              margin-bottom: 25px;
-              page-break-inside: avoid;
-              background: white;
-              border-radius: 12px;
-              overflow: hidden;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            }
-            
-            .category-header {
-              padding: 18px 25px;
-              color: white;
-              font-size: 22px;
-              font-weight: 700;
-              letter-spacing: 0.5px;
-            }
-            
-            .bg-blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
-            .bg-green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-            .bg-purple { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
-            .bg-yellow { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
-            .bg-red { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
-            .bg-indigo { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); }
-            .bg-pink { background: linear-gradient(135deg, #ec4899 0%, #db2777 100%); }
-            .bg-teal { background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); }
-            .bg-orange { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
-            .bg-cyan { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
-            
-            .items {
-              padding: 20px 25px;
-            }
-            
-            .item {
-              display: flex;
-              align-items: center;
-              padding: 12px 0;
-              border-bottom: 1px solid #f0f0f0;
-              font-size: 16px;
-            }
-            
-            .item:last-child {
-              border-bottom: none;
-            }
-            
-            .checkbox {
-              width: 24px;
-              height: 24px;
-              border: 3px solid #d1d5db;
-              border-radius: 6px;
-              margin-right: 15px;
-              flex-shrink: 0;
-              display: inline-block;
-              background: white;
-            }
-            
-            .checkbox.checked {
-              background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-              border-color: #059669;
-              position: relative;
-            }
-            
-            .checkbox.checked::after {
-              content: '✓';
-              position: absolute;
-              color: white;
-              font-size: 18px;
-              font-weight: bold;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-            
-            .item-text {
-              color: #374151;
-              font-weight: 500;
-            }
-            
-            .item.checked .item-text {
-              color: #9ca3af;
-              text-decoration: line-through;
-            }
-            
-            .footer {
-              margin-top: 40px;
-              text-align: center;
-              color: #6b7280;
-              font-size: 14px;
-              padding: 20px;
-              background: white;
-              border-radius: 12px;
-              box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            }
-            
-            @media print {
-              body {
-                background: white;
-              }
-              .category {
-                box-shadow: none;
-                border: 1px solid #e5e7eb;
-              }
-              .header {
-                box-shadow: none;
-              }
-            }
+            ${document.querySelector('style').innerHTML}
+            ${document.querySelector('#pdf-styles')?.innerHTML || ''}
           </style>
         </head>
         <body>
-          <div class="header">
-            <h1>📚 Checklist de Ensino</h1>
-            <p>Programação em Portugol - Do Zero ao Avançado</p>
-          </div>
-          
-          ${topics
-             .map(
-                (topic, catIndex) => `
-            <div class="category">
-              <div class="category-header ${topic.color.replace('bg-', 'bg-').replace('-500', '')}"">
-                ${topic.category}
+          <div class="pdf-container">
+            <h1>Checklist de Ensino - Portugol</h1>
+            ${topics
+               .map(
+                  (topic, catIndex) => `
+              <div class="pdf-category">
+                <h2 class="${topic.color}">${topic.category}</h2>
+                <ul>
+                  ${topic.items
+                     .map((item, itemIndex) => {
+                        const key = `${catIndex}-${itemIndex}`;
+                        const isChecked = checkedItems[key];
+                        return `<li class="${isChecked ? 'checked' : ''}">${item.text}</li>`;
+                     })
+                     .join('')}
+                </ul>
               </div>
-              <div class="items">
-                ${topic.items
-                   .map((item, itemIndex) => {
-                      const key = `${catIndex}-${itemIndex}`;
-                      const isChecked = checkedState[key];
-                      return `
-                    <div class="item ${isChecked ? 'checked' : ''}">
-                      <span class="checkbox ${isChecked ? 'checked' : ''}"></span>
-                      <span class="item-text">${item}</span>
-                    </div>
-                  `;
-                   })
-                   .join('')}
-              </div>
-            </div>
-          `
-             )
-             .join('')}
-          
-          <div class="footer">
-            <p><strong>Dica:</strong> Siga a ordem dos tópicos para um aprendizado progressivo e eficaz!</p>
-            <p>Marque cada item conforme ensinar e pratique bastante com exercícios! 💪</p>
+            `
+               )
+               .join('')}
           </div>
         </body>
       </html>
     `);
-
       printWindow.document.close();
-      setTimeout(() => {
-         printWindow.print();
-      }, 500);
+      setTimeout(() => printWindow.print(), 500);
    };
 
-   const totalItems = topics.reduce((sum, topic) => sum + topic.items.length, 0);
+   const totalItems = topics.reduce((sum, t) => sum + t.items.length, 0);
    const checkedCount = Object.values(checkedItems).filter(Boolean).length;
    const progress = Math.round((checkedCount / totalItems) * 100);
 
    return (
-      <div className='min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-6'>
-         <div className='max-w-4xl mx-auto'>
-            <div className='bg-white rounded-2xl shadow-2xl overflow-hidden mb-6'>
-               <div className='bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white'>
-                  <h1 className='text-4xl font-bold mb-3'>📚 Checklist de Ensino - Portugol</h1>
-                  <p className='text-lg opacity-95'>Guia completo para ensinar programação do zero</p>
-                  <div className='mt-4 bg-white/20 rounded-full h-3 overflow-hidden'>
-                     <div
-                        className='bg-white h-full transition-all duration-500 rounded-full'
-                        style={{ width: `${progress}%` }}
-                     ></div>
-                  </div>
-                  <p className='text-sm mt-2 opacity-90'>
-                     {checkedCount} de {totalItems} tópicos concluídos ({progress}%)
-                  </p>
-               </div>
-
-               <div className='p-8'>
-                  <button
-                     onClick={generatePDF}
-                     className='w-full bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 mb-6'
-                  >
-                     <Download size={24} />
-                     <span className='text-lg'>Gerar PDF para Impressão</span>
-                  </button>
-
-                  <div className='space-y-6'>
-                     {topics.map((topic, catIndex) => (
+      <>
+         <div className='min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-6 font-poppins'>
+            <div className='max-w-5xl mx-auto'>
+               <div className='bg-white rounded-3xl shadow-2xl overflow-hidden mb-8'>
+                  <div className='bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white'>
+                     <h1 className='text-5xl font-bold mb-3 flex items-center gap-3'>Checklist de Ensino - Portugol</h1>
+                     <p className='text-xl opacity-95'>Do zero ao avançado com vídeos e prática</p>
+                     <div className='mt-6 bg-white/30 rounded-full h-4 overflow-hidden'>
                         <div
-                           key={catIndex}
-                           className='bg-white rounded-xl shadow-md overflow-hidden border-2 border-gray-100 hover:border-gray-200 transition-all'
-                        >
-                           <div className={`${topic.color} text-white p-5`}>
-                              <h2 className='text-2xl font-bold'>{topic.category}</h2>
-                           </div>
-                           <div className='p-5'>
-                              {topic.items.map((item, itemIndex) => {
-                                 const key = `${catIndex}-${itemIndex}`;
-                                 const isChecked = checkedItems[key];
-                                 return (
-                                    <div
-                                       key={itemIndex}
-                                       onClick={() => handleCheck(catIndex, itemIndex)}
-                                       className='flex items-center p-3 hover:bg-gray-50 rounded-lg cursor-pointer transition-all group'
-                                    >
-                                       <div
-                                          className={`w-6 h-6 rounded-md border-3 mr-4 flex items-center justify-center transition-all ${
-                                             isChecked
-                                                ? 'bg-green-500 border-green-500'
-                                                : 'border-gray-300 group-hover:border-gray-400'
-                                          }`}
-                                       >
-                                          {isChecked && <span className='text-white text-lg font-bold'>✓</span>}
-                                       </div>
-                                       <span
-                                          className={`text-lg transition-all ${
-                                             isChecked ? 'text-gray-400 line-through' : 'text-gray-700 font-medium'
-                                          }`}
-                                       >
-                                          {item}
-                                       </span>
-                                    </div>
-                                 );
-                              })}
-                           </div>
-                        </div>
-                     ))}
+                           className='bg-white h-full transition-all duration-700 rounded-full'
+                           style={{ width: `${progress}%` }}
+                        ></div>
+                     </div>
+                     <p className='mt-2 text-sm opacity-90'>
+                        {checkedCount} de {totalItems} concluídos ({progress}%)
+                     </p>
                   </div>
 
-                  <div className='mt-8 bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-2 border-blue-200'>
-                     <p className='text-gray-700 text-center font-medium text-lg'>
-                        💡 <strong>Dica:</strong> Clique nos itens para marcar conforme ensinar cada tópico!
-                     </p>
-                     <p className='text-gray-600 text-center mt-2'>
-                        A ordem dos tópicos foi organizada pedagogicamente para facilitar o aprendizado progressivo.
-                     </p>
+                  <div className='p-8'>
+                     <button onClick={generatePDF} className='btn-generate-pdf'>
+                        <Download size={28} />
+                        <span className='text-xl'>Gerar PDF para Impressão</span>
+                     </button>
+
+                     <div className='space-y-8'>
+                        {topics.map((topic, catIndex) => (
+                           <div
+                              key={catIndex}
+                              className='bg-white rounded-2xl shadow-lg border-2 border-gray-100 hover:border-gray-300 transition-all'
+                           >
+                              <div className={`${topic.color} text-white p-6 rounded-t-2xl`}>
+                                 <h2 className='text-3xl font-bold'>{topic.category}</h2>
+                              </div>
+                              <div className='p-6 space-y-4'>
+                                 {topic.items.map((item, itemIndex) => {
+                                    const key = `${catIndex}-${itemIndex}`;
+                                    const isChecked = checkedItems[key];
+                                    const isOpen = openDropdowns[key];
+
+                                    return (
+                                       <div key={itemIndex} className='border-b border-gray-100 pb-4 last:border-0'>
+                                          <div
+                                             onClick={() => handleCheck(catIndex, itemIndex)}
+                                             className='flex items-center gap-4 cursor-pointer group'
+                                          >
+                                             <div
+                                                className={`w-8 h-8 rounded-full border-4 flex items-center justify-center transition-all ${
+                                                   isChecked
+                                                      ? 'bg-emerald-500 border-emerald-500'
+                                                      : 'border-gray-300 group-hover:border-gray-500'
+                                                }`}
+                                             >
+                                                {isChecked && <span className='text-white text-xl font-bold'>✓</span>}
+                                             </div>
+                                             <span
+                                                className={`text-lg font-medium transition-all ${
+                                                   isChecked ? 'text-gray-400 line-through' : 'text-gray-800'
+                                                }`}
+                                             >
+                                                {item.text}
+                                             </span>
+                                             <button
+                                                onClick={(e) => {
+                                                   e.stopPropagation();
+                                                   toggleDropdown(catIndex, itemIndex);
+                                                }}
+                                                className='ml-auto text-gray-500 hover:text-indigo-600 transition-colors'
+                                             >
+                                                {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                             </button>
+                                          </div>
+
+                                          {isOpen && (
+                                             <div className='mt-3 ml-12 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200'>
+                                                <p className='font-semibold text-indigo-700 mb-2'>
+                                                   Vídeos Recomendados:
+                                                </p>
+                                                <ul className='space-y-2'>
+                                                   {item.videos.map((video, i) => (
+                                                      <li key={i}>
+                                                         <a
+                                                            href={video}
+                                                            target='_blank'
+                                                            rel='noopener noreferrer'
+                                                            className='flex items-center gap-2 text-indigo-600 hover:text-indigo-800 hover:underline text-sm'
+                                                         >
+                                                            <ExternalLink size={16} />
+                                                            {i === 0 ? 'Guanabara - Curso em Vídeo' : `Vídeo ${i + 1}`}
+                                                         </a>
+                                                      </li>
+                                                   ))}
+                                                </ul>
+                                             </div>
+                                          )}
+                                       </div>
+                                    );
+                                 })}
+                              </div>
+                           </div>
+                        ))}
+                     </div>
+
+                     <div className='mt-10 bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-2xl border-2 border-amber-200'>
+                        <p className='text-center text-amber-800 font-bold text-xl'>
+                           Dica: Siga a ordem e pratique com exercícios após cada tópico!
+                        </p>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
+      </>
    );
 };
 
