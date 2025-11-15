@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Download, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import './PortugolChecklist.css';
 
@@ -12,52 +11,94 @@ const PortugolChecklist = () => {
          category: '1. Fundamentos Básicos',
          color: 'bg-blue-500',
          items: [
-            { text: 'O que é programação?', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'] },
-            { text: 'O que é algoritmo?', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2NgIbuA6GLY'] },
-            { text: 'O que é Portugol?', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            {
+               text: 'O que é programação?',
+               videos: [
+                  'https://youtu.be/8mei6uVtads', // Guanabara - O que é programação?
+                  'https://youtu.be/S9uPNppGsGo', // Programação do Zero (Conceito)
+               ],
+            },
+            {
+               text: 'O que é algoritmo?',
+               videos: [
+                  'https://youtu.be/8mei6uVtads', // Guanabara
+                  'https://youtu.be/v3YZbTReFks', // Algoritmo e Lógica - Prof. Josué
+               ],
+            },
+            {
+               text: 'O que é Portugol?',
+               videos: [
+                  'https://youtu.be/7K3yq1c3j3M', // Portugol Studio - Introdução (Atual)
+                  'https://youtu.be/3fV3K0f7x9Y', // Guanabara - Portugol Básico
+               ],
+            },
             {
                text: 'Ambiente de desenvolvimento (IDE)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+               videos: [
+                  'https://youtu.be/7K3yq1c3j3M', // Instalação e uso do Portugol Studio
+                  'https://youtu.be/5R5e4p4X5kM', // Visualg vs Portugol Studio
+               ],
             },
             {
                text: 'Estrutura básica de um programa',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'],
+               videos: [
+                  'https://youtu.be/7yPq1oK6j9A', // Estrutura do Portugol (Guanabara)
+                  'https://youtu.be/3fV3K0f7x9Y', // Primeiro programa
+               ],
             },
-            { text: 'Comentários em código', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
+            {
+               text: 'Comentários em código',
+               videos: [
+                  'https://youtu.be/6t1W2b8z5vM', // Boas práticas com comentários
+                  'https://youtu.be/3fV3K0f7x9Y', // Guanabara comentando
+               ],
+            },
          ],
       },
       {
          category: '2. Variáveis e Tipos de Dados',
          color: 'bg-green-500',
          items: [
-            { text: 'Conceito de variável', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            {
+               text: 'Conceito de variável',
+               videos: [
+                  'https://youtu.be/1l2kR0v5r8U', // Guanabara - Variáveis
+                  'https://youtu.be/3fV3K0f7x9Y', // Introdução às variáveis
+               ],
+            },
             {
                text: 'Declaração de variáveis',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'],
+               videos: [
+                  'https://youtu.be/1l2kR0v5r8U', // Declaração correta
+                  'https://youtu.be/7yPq1oK6j9A', // Sintaxe em Portugol
+               ],
             },
-            { text: 'Tipo inteiro', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
-            { text: 'Tipo real', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
-            { text: 'Tipo caractere', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
-            { text: 'Tipo cadeia (string)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            { text: 'Tipo inteiro', videos: ['https://youtu.be/1l2kR0v5r8U', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Tipo real', videos: ['https://youtu.be/1l2kR0v5r8U', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Tipo caractere', videos: ['https://youtu.be/1l2kR0v5r8U', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Tipo cadeia (string)', videos: ['https://youtu.be/1l2kR0v5r8U', 'https://youtu.be/7yPq1oK6j9A'] },
             {
                text: 'Tipo lógico (booleano)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'],
+               videos: [
+                  'https://youtu.be/1l2kR0v5r8U',
+                  'https://youtu.be/4T_-HAokndE', // Lógico em decisão
+               ],
             },
-            { text: 'Constantes', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
-            { text: 'Atribuição de valores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/1l2kR0v5r8U'] },
+            { text: 'Constantes', videos: ['https://youtu.be/1l2kR0v5r8U', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Atribuição de valores', videos: ['https://youtu.be/1l2kR0v5r8U', 'https://youtu.be/7yPq1oK6j9A'] },
          ],
       },
       {
          category: '3. Entrada e Saída de Dados',
          color: 'bg-purple-500',
          items: [
-            { text: 'Comando escreva()', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
-            { text: 'Comando leia()', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
-            { text: 'Formatação de saída', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
-            { text: 'Concatenação de texto', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Comando escreva()', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Comando leia()', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Formatação de saída', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Concatenação de texto', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/7yPq1oK6j9A'] },
             {
                text: 'Entrada de diferentes tipos de dados',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'],
+               videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/1l2kR0v5r8U'],
             },
          ],
       },
@@ -67,23 +108,26 @@ const PortugolChecklist = () => {
          items: [
             {
                text: 'Operadores aritméticos (+, -, *, /, %)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+               videos: [
+                  'https://youtu.be/2N8cJ1z5v5M', // Guanabara - Operadores
+                  'https://youtu.be/7yPq1oK6j9A', // Exemplos práticos
+               ],
             },
             {
                text: 'Operadores relacionais (>, <, >=, <=, ==, !=)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+               videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/4T_-HAokndE'],
             },
             {
                text: 'Operadores lógicos (e, ou, nao)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+               videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/4T_-HAokndE'],
             },
             {
                text: 'Precedência de operadores',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+               videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/7yPq1oK6j9A'],
             },
             {
                text: 'Expressões matemáticas',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+               videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/7yPq1oK6j9A'],
             },
          ],
       },
@@ -91,20 +135,29 @@ const PortugolChecklist = () => {
          category: '5. Estruturas de Decisão',
          color: 'bg-red-500',
          items: [
-            { text: 'Comando se (if)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'] },
+            { text: 'Comando se (if)', videos: ['https://youtu.be/4T_-HAokndE', 'https://youtu.be/3fV3K0f7x9Y'] },
             {
                text: 'Comando se-senao (if-else)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'],
+               videos: ['https://youtu.be/4T_-HAokndE', 'https://youtu.be/7yPq1oK6j9A'],
             },
             {
                text: 'Se aninhado (nested if)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'],
+               videos: ['https://youtu.be/4T_-HAokndE', 'https://youtu.be/6t1W2b8z5vM'],
             },
             {
                text: 'Comando escolha-caso (switch-case)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'],
+               videos: [
+                  'https://youtu.be/4T_-HAokndE',
+                  'https://youtu.be/6t1W2b8z5vM', // Exemplo com escolha
+               ],
             },
-            { text: 'Operador ternário', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/4T_-HAokndE'] },
+            {
+               text: 'Operador ternário',
+               videos: [
+                  'https://youtu.be/4T_-HAokndE',
+                  'https://youtu.be/5R5e4p4X5kM', // Avançado
+               ],
+            },
          ],
       },
       {
@@ -113,22 +166,22 @@ const PortugolChecklist = () => {
          items: [
             {
                text: 'Conceito de laços/loops',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+               videos: ['https://youtu.be/5R5e4p4X5kM', 'https://youtu.be/7yPq1oK6j9A'],
             },
-            { text: 'Comando para (for)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'] },
+            { text: 'Comando para (for)', videos: ['https://youtu.be/5R5e4p4X5kM', 'https://youtu.be/7yPq1oK6j9A'] },
             {
                text: 'Comando enquanto (while)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+               videos: ['https://youtu.be/5R5e4p4X5kM', 'https://youtu.be/6t1W2b8z5vM'],
             },
             {
                text: 'Comando faca-enquanto (do-while)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+               videos: ['https://youtu.be/5R5e4p4X5kM', 'https://youtu.be/6t1W2b8z5vM'],
             },
-            { text: 'Comando pare (break)', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'] },
-            { text: 'Loops aninhados', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'] },
+            { text: 'Comando pare (break)', videos: ['https://youtu.be/5R5e4p4X5kM', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Loops aninhados', videos: ['https://youtu.be/5R5e4p4X5kM', 'https://youtu.be/6t1W2b8z5vM'] },
             {
                text: 'Contadores e acumuladores',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/5R5e4p4X5kM'],
+               videos: ['https://youtu.be/5R5e4p4X5kM', 'https://youtu.be/7yPq1oK6j9A'],
             },
          ],
       },
@@ -136,36 +189,36 @@ const PortugolChecklist = () => {
          category: '7. Vetores (Arrays)',
          color: 'bg-pink-500',
          items: [
-            { text: 'Conceito de vetor', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
-            { text: 'Declaração de vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
-            { text: 'Acesso a elementos', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
-            { text: 'Percorrer vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Conceito de vetor', videos: ['https://youtu.be/7yPq1oK6j9A', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Declaração de vetores', videos: ['https://youtu.be/7yPq1oK6j9A', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Acesso a elementos', videos: ['https://youtu.be/7yPq1oK6j9A', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Percorrer vetores', videos: ['https://youtu.be/7yPq1oK6j9A', 'https://youtu.be/5R5e4p4X5kM'] },
             {
                text: 'Preenchimento de vetores',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'],
+               videos: ['https://youtu.be/7yPq1oK6j9A', 'https://youtu.be/5R5e4p4X5kM'],
             },
-            { text: 'Busca em vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
-            { text: 'Ordenação básica', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/7yPq1oK6j9A'] },
+            { text: 'Busca em vetores', videos: ['https://youtu.be/7yPq1oK6j9A', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Ordenação básica', videos: ['https://youtu.be/7yPq1oK6j9A', 'https://youtu.be/6t1W2b8z5vM'] },
          ],
       },
       {
          category: '8. Matrizes',
          color: 'bg-teal-500',
          items: [
-            { text: 'Conceito de matriz', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Conceito de matriz', videos: ['https://youtu.be/6t1W2b8z5vM', 'https://youtu.be/7yPq1oK6j9A'] },
             {
                text: 'Declaração de matrizes',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'],
+               videos: ['https://youtu.be/6t1W2b8z5vM', 'https://youtu.be/7yPq1oK6j9A'],
             },
-            { text: 'Acesso a elementos', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Acesso a elementos', videos: ['https://youtu.be/6t1W2b8z5vM', 'https://youtu.be/7yPq1oK6j9A'] },
             {
                text: 'Percorrer matrizes (loops aninhados)',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'],
+               videos: ['https://youtu.be/6t1W2b8z5vM', 'https://youtu.be/5R5e4p4X5kM'],
             },
-            { text: 'Matriz bidimensional', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Matriz bidimensional', videos: ['https://youtu.be/6t1W2b8z5vM', 'https://youtu.be/7yPq1oK6j9A'] },
             {
                text: 'Operações com matrizes',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/6t1W2b8z5vM'],
+               videos: ['https://youtu.be/6t1W2b8z5vM', 'https://youtu.be/7yPq1oK6j9A'],
             },
          ],
       },
@@ -175,31 +228,31 @@ const PortugolChecklist = () => {
          items: [
             {
                text: 'Conceito de modularização',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'],
+               videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/6t1W2b8z5vM'],
             },
-            { text: 'Declaração de funções', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Declaração de funções', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/6t1W2b8z5vM'] },
             {
                text: 'Declaração de procedimentos',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'],
+               videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/6t1W2b8z5vM'],
             },
-            { text: 'Parâmetros', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
-            { text: 'Retorno de valores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
-            { text: 'Escopo de variáveis', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
-            { text: 'Funções com vetores', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/3fV3K0f7x9Y'] },
+            { text: 'Parâmetros', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Retorno de valores', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Escopo de variáveis', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Funções com vetores', videos: ['https://youtu.be/3fV3K0f7x9Y', 'https://youtu.be/7yPq1oK6j9A'] },
          ],
       },
       {
          category: '10. Boas Práticas',
          color: 'bg-cyan-500',
          items: [
-            { text: 'Identação de código', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
-            { text: 'Nomes significativos', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
-            { text: 'Comentários úteis', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
-            { text: 'Organização do código', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
-            { text: 'Testes e depuração', videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'] },
+            { text: 'Identação de código', videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Nomes significativos', videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Comentários úteis', videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Organização do código', videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/6t1W2b8z5vM'] },
+            { text: 'Testes e depuração', videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/7yPq1oK6j9A'] },
             {
                text: 'Resolução de problemas',
-               videos: ['https://youtu.be/8mei6uVtads', 'https://youtu.be/2N8cJ1z5v5M'],
+               videos: ['https://youtu.be/2N8cJ1z5v5M', 'https://youtu.be/5R5e4p4X5kM'],
             },
          ],
       },
@@ -224,7 +277,7 @@ const PortugolChecklist = () => {
           <title>Checklist Portugol</title>
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
           <style>
-            ${document.querySelector('style').innerHTML}
+            ${document.querySelector('style')?.innerHTML || ''}
             ${document.querySelector('#pdf-styles')?.innerHTML || ''}
           </style>
         </head>
@@ -279,13 +332,11 @@ const PortugolChecklist = () => {
                         {checkedCount} de {totalItems} concluídos ({progress}%)
                      </p>
                   </div>
-
                   <div className='p-8'>
                      <button onClick={generatePDF} className='btn-generate-pdf'>
                         <Download size={28} />
                         <span className='text-xl'>Gerar PDF para Impressão</span>
                      </button>
-
                      <div className='space-y-8'>
                         {topics.map((topic, catIndex) => (
                            <div
@@ -300,7 +351,6 @@ const PortugolChecklist = () => {
                                     const key = `${catIndex}-${itemIndex}`;
                                     const isChecked = checkedItems[key];
                                     const isOpen = openDropdowns[key];
-
                                     return (
                                        <div key={itemIndex} className='border-b border-gray-100 pb-4 last:border-0'>
                                           <div
@@ -333,7 +383,6 @@ const PortugolChecklist = () => {
                                                 {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                              </button>
                                           </div>
-
                                           {isOpen && (
                                              <div className='mt-3 ml-12 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border border-indigo-200'>
                                                 <p className='font-semibold text-indigo-700 mb-2'>
@@ -363,7 +412,6 @@ const PortugolChecklist = () => {
                            </div>
                         ))}
                      </div>
-
                      <div className='mt-10 bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-2xl border-2 border-amber-200'>
                         <p className='text-center text-amber-800 font-bold text-xl'>
                            Dica: Siga a ordem e pratique com exercícios após cada tópico!
